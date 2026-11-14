@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penny 托管自检测试页</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card">
+  <h1>Penny 托管自检测试页</h1>
+  <p class="lead">这是一张纯静态自检页，用于验证静态托管平台能否正常渲染中文、加载图片与样式、执行脚本、允许文件下载，以及是否存在平台中间页。页面不含 Penny 源码、不含真实账单、不含任何凭据。</p>
+
+  <figure>
+    <img src="test-image.png" alt="测试图片：暖米白底上的陶土橘红与橄榄绿色块" width="320" height="120">
+    <figcaption>图片加载检测（若显示色块即正常）</figcaption>
+  </figure>
+
+  <section class="check">
+    <h2>自动检测结果</h2>
+    <ul id="results">
+      <li data-k="https">HTTPS：检测中…</li>
+      <li data-k="css">CSS：检测中…</li>
+      <li data-k="js">JavaScript：检测中…</li>
+      <li data-k="img">图片：检测中…</li>
+      <li data-k="pvlocal">本机计数：检测中…</li>
+      <li data-k="pvsite">站点访问量（不蒜子）：检测中…</li>
+    </ul>
+  </section>
+
+  <section class="actions">
+    <h2>交互与下载检测</h2>
+    <button id="btn" type="button">点我测试 JS 交互</button>
+    <p id="btn-out" class="out">尚未点击</p>
+    <p class="dl">
+      <a href="sample-file.txt" download>下载普通文本文件（sample-file.txt）</a>
+    </p>
+    <p class="dl warn">
+      <a href="PENNY-TEST-NOT-AN-APK.bin" download>下载测试用模拟文件（PENNY-TEST-NOT-AN-APK.bin，约 1.1 MB）</a>
+      <br><strong>注意：这不是 APK，不能安装，仅用于验证平台是否允许二进制文件下载。</strong>
+    </p>
+  </section>
+
+  <section class="check">
+    <h2>站点访问统计（第三方）</h2>
+    <p class="pv-note">
+      本页接入 <strong>不蒜子</strong> 作为真实站点计数，用于验证「后台能否看到访问量」。它不含 Penny 账本、不读取用户输入，仅按域名累计页面访问次数。
+      <span id="busuanzi_container_site_pv" style="display:none">当前站点累计访问 <strong id="busuanzi_value_site_pv">-</strong> 次</span>
+    </p>
+    <p class="pv-note muted" id="bs-status">脚本状态：加载中…</p>
+  </section>
+
+  <footer>
+    <p>打开时间：<span id="now">—</span></p>
+    <p class="muted">若你看到本页且上方检测项多为「正常」，说明该平台的 HTML/CSS/JS/图片/下载链路可用。</p>
+  </footer>
+</main>
+<script src="app.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+        onload="window.__bsLoaded=1" onerror="window.__bsFailed=1"></script>
+</body>
+</html>
